@@ -1,0 +1,57 @@
++sčítání
+sum
+    sečte 2 hodnoty, vrácí součet
+    argument - double(hodnota1), double(hodnota2)
+    return - double(součet)
+
+-odčítání
+sub
+    odečte druhou hodnotu od první, vrácí rozdíl
+    argument - double(menšenec), double(menšitel)
+    return - double(rozdíl)
+
+*násobení
+mult
+    vynásobí 2 hodnoty, vrácí součin
+    argument - double, double
+    return - double(součin)
+
+/dělení
+div
+    vydělí první hodnotu(dělenec) druhým argumentem(dělitel), vrácí podíl
+    argument - double(dělenec), double(dělitel)
+        druhý argument (dělitel) se nesmí rovnat 0
+    return - double(podíl)
+
+faktoriál
+fac
+    cyklus násobení "hodnota-1" dokud hodnota není 0,  vrácí faktoriál dané hodnoty
+    argument - int
+        argument = přirozené číslo (0,1,2,3,...)
+    return - int(faktoriál)
+
+umocňování
+pow
+    umocní zadaný základ na zadaný exponent (opakované násobení stejného čísla), vrací mocninu
+    argument - double(základ), int(exponent)
+        kalkulačka pracuje pouze s přirozenými exponenty (0,1,2,3,...)
+    return - double(mocnina)
+
+obecná odmocnina
+root
+    vrácí odmocninu zadané hodnoty
+    (závislé na funkci pow)
+    argument - double(num), int(root)
+        root se nesmí rovnat 0
+    return - double(odmocnina)
+
+vlastní funkce
+zbytek po dělení
+rem
+    vrácí zbytek po dělení
+    argument - double(dělenec), double(dělitel)
+        druhý argument (dělitel) se nesmí rovnat 0
+    return - double(zbytek)
+
+
+další nápady na vlastní funkci: sin, determinant, pythagorova věta,..
