@@ -1,0 +1,54 @@
+Zvolený programovací jazyk - Python
+
+
+Předběžný plán projektu + termíny
+-celkový rozsah 5 týdnů
+	
+	návrh - 1. týden  		21.3 - 27.3
+		návrh GUI
+		návrh mat. knihovny	
+		návrh testů		
+
+	implementace - 2. týden 	28.3 - 3.4
+		implemetace GUI		
+		implementace knihovny	
+		
+		
+	integrace - 3. týden		4.4 - 10.4
+		integrace projektu	
+		tvorba instalátoru
+		vytvoření dokumentace
+		uživatelská příručka		
+
+	testování - 4. týden  		11.4 - 17.4
+		testování GUI
+		testování knihovny
+		testování výsledného programu
+	
+	termín dokončení -  		18.4.2022
+
+	finalizace projektu - 5. týden	19.4 - 21.4
+		vzájemné hodnocení
+		ohodnocení plánu - plán x realita	
+
+	odevzdání projektu - 		28.4.2022
+	
+
+
+Rozdělení práce:
+xkralj12 (návrh GUI, implemetace GUI, základní mat. operace)
+xdobes22 (návrh mat. knihovny, implementace knihovny, pokročilé mat. operace)
+xsynak03 (profiling, instalátor, integrace projektu, uživatelská příručka)
+xbalek02 (dokumentace, testy, implemetace GUI)
+
+
+Komunikace:
+-hlavní komunikační kanál - Discord 
+	-(pro nouzové případy, kontakt přes telefon)
+-pravidla komunikace - týdenní meeting (5-15 minut) - každé pondělí 13:00
+		     - první meeting 21.3.2022 - 
+
+
+Repozitář:
+-repozitář: https://github.com/kristian-dobes/ivs-project-2-calculator
+-e-mail ivs.kontrola@gmail.com byl přidán do repozitáře
