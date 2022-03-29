@@ -1,0 +1,58 @@
++sčítání
+		bude testováno pro:
+				 náhodné: 30 hodnot typu double 
+				 pro potencionálně problémové hodnoty: 0, záporná čísla, 0.000000
+				
+
+-odčítání 
+		bude testováno pro:
+				 náhodné: 30 hodnot typu double 
+				 pro potencionálně problémové hodnoty: 0, záporná čísla, 0.000000 
+	
+	 
+*nasobení 
+		bude testováno pro:
+				 náhodné: 30 hodnot typu double 
+				 pro potencionálně problémové hodnoty: 0, záporná čísla, 0.000000
+/dělení
+		bude testováno pro:
+				 náhodné: 30 hodnot typu double
+				 pro potencionálně problémové hodnoty: čísla pro která je výsledek periodický, záporná čísla
+				 pro hodnoty: 0, 0.0, 0.00 ..... Bude očekávána vyjímka
+!faktoriál
+		bude testováno pro:
+				 náhodné: 30 hodnot typu int
+				 pro potencionálně problémové hodnoty: 0, 0.000000 
+			 	 pro hodnoty: x<0 Bude očekávána vyjímka
+umocňování
+		bude testováno pro základ:
+				 náhodné: 30 hodnot typu double
+				 pro potencionálně problémové hodnoty: 0, záporná čísla, 0.000000
+
+		bude testováno pro exponent:
+				 náhodné: 30 hodnot typu int
+				 pro potencionálně problémové hodnoty: 0, záporná čísla, 0.000000
+				 pro hodnoty: které nejsou celé číslo bude očekávána vyjímka
+obecná odmocnina
+		bude testováno pro základ:
+				 náhodné: 30 hodnot typu double
+				 pro potencionálně problémové hodnoty: 0, záporná čísla, 0.000000
+				 pro záporné hodnoty bude u sudé odmocniny očekávána vyjímka
+
+		bude testováno pro odmocnitele:
+				náhodné: 30 hodnot typu int
+				pro potencionálně problémové hodnoty: záporná čísla
+				pro hodnotu: 0 bude očekávaná vyjímka
+
+zbytek po dělení
+		bude testováno pro:
+				 náhodné: 30 hodnot typu double
+				 pro potencionálně problémové hodnoty: záporná čísla
+				 pro hodnoty dělitele: 0, 0.0, 0.00 ..... Bude očekávána vyjímka		
+
+
+
+
+
+
+		
