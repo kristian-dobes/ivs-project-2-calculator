@@ -7,11 +7,11 @@ Windows 64bit
 Autori
 ------
 
-Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+IVS01
+- xbalek02 Miroslav Bálek 
+- xdobes22 jmeno prijmeni 
+- xsynak03 jmeno prijmeni 
+- xkralj12 jmeno prijmeni 
 
 Licence
 -------
