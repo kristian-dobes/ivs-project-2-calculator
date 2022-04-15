@@ -36,7 +36,7 @@ def nroot(num, root):                #Nth-Root
 def fac(num):                        #Factorial
     factorial = 1
     if num<0 or num%1 != 0:
-        raise ValueError("Value need to be a non-negative integer")
+        raise ValueError("Value needs to be a non-negative integer")
     elif num==0:
         result=1
     elif num>170:
