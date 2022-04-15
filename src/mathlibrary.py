@@ -17,13 +17,12 @@ def div(divident, divisor):         #Division
     if divisor==0:
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")    
     else:
-        result=divident/divisor
-        return round(result,7)
+        return divident/divisor
     
     
 def Pow(basis, exponent):            #Exponentiation    #CAPITAL Pow
     result = pow(basis, exponent)
-    return round(result,7)
+    return result
 
 
 def nroot(num, root):                #Nth-Root
@@ -47,7 +46,8 @@ def fac(num):                        #Factorial
             factorial = factorial*i
             result = factorial
 
-    return result
+    # return ("{:e}".format(result))        #returns factorial as Scientific Notation
+    return result                           #returns factorial as Integer
 
 
 def rem(divident, divisor):          #Division Remainder
