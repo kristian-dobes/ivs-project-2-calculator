@@ -9,8 +9,8 @@ Autori
 IVS01
 - xbalek02 Miroslav Bálek
 - xdobes22 Kristián Dobeš
-- xsynak03 Jan Král
-- xkralj12 Maroš Synák
+- xsynak03 Maroš Synák
+- xkralj12 Jan Král
 
 Licence
 -------
