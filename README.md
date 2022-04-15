@@ -8,10 +8,10 @@ Autori
 ------
 
 IVS01
-- xbalek02 Miroslav Bálek 
-- xdobes22 jmeno prijmeni 
-- xsynak03 jmeno prijmeni 
-- xkralj12 jmeno prijmeni 
+- xbalek02 Miroslav Bálek
+- xdobes22 Kristián Dobeš
+- xsynak03 Jan Král
+- xkralj12 Maroš Synák
 
 Licence
 -------
