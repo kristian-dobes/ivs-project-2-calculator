@@ -20,8 +20,8 @@
 # @section DESCRIPTION
 #
 # Knihovna, která vykonává základní matematické operace jako sčítání, odčítání, násobení, dělení,
-# celočíselný zbytek po dělení, umocnění, obecnou odmocninu a faktoriál.
-#  Všechny operace jsou počítány s přesností na sedm desetinných míst.
+# zbytek po dělení, umocnění, obecná odmocnina a faktoriál.
+#  Všechny funkce jsou testovány s přesností na sedm desetinných míst.
 
 
 
@@ -63,12 +63,22 @@ def div(divident, divisor):  # Division
     else:
         return divident/divisor
     
-    
+##
+# Funkce pro výpočet mocniny
+# @param basis základ
+# @param exponent exponent
+#
+# @return základ na exponent    
 def mypow(basis, exponent):            #Exponentiation
     result = pow(basis, exponent)
     return result
 
-
+##
+# Funkce pro výpočet odmocniny
+# @param num odmocněnec
+# @param exponent odmocnitel
+#
+# @return n-tá odmocnina  
 def root(num, root):                #Nth-Root
     if root==0: 
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")    
@@ -76,7 +86,11 @@ def root(num, root):                #Nth-Root
         result = num**(1/root)
         return result
 
-
+##
+# Funkce pro výpočet faktorialu
+# @param num základ
+# Argument funkce musí být kladné číslo menší než 170
+# @return faktoriál základu  
 def fac(num):  # Factorial
     factorial = 1
     if num < 0 or num % 1 != 0:
@@ -93,7 +107,12 @@ def fac(num):  # Factorial
     # return ("{:e}".format(result))        #returns factorial as Scientific Notation
     return result  # returns factorial as Integer
 
-
+##
+# Funkce pro výpočet zbytku po dělení 
+# @param divident dělenec
+# @param divisor dělitel
+#
+# @return Zbytek dělenec%dělitel
 def rem(divident, divisor):  # Division Remainder
     if divisor == 0 or divisor == {}:
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")
