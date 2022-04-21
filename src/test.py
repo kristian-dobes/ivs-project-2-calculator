@@ -18,12 +18,12 @@ class Test(unittest.TestCase):
         self.assertRaises(OverflowError, mathlibrary.sum, sys.float_info.max, 1)
 
     def test_sub(self):
-        self.assertEqual(mathlibrary.sub(0.00000000000, 0), 0)
-        self.assertEqual(mathlibrary.sub(-111111, -111111), 0)
-        self.assertEqual(mathlibrary.sub(123.1231231,
+        self.assertAlmostEqual(mathlibrary.sub(0.00000000000, 0), 0)
+        self.assertAlmostEqual(mathlibrary.sub(-111111, -111111), 0)
+        self.assertAlmostEqual(mathlibrary.sub(123.1231231,
                                         50.0000068), 73.1231163)
-        self.assertEqual(mathlibrary.sub(
-            123123.1239123, -444.4444444), 123567.568)
+        self.assertAlmostEqual(mathlibrary.sub(
+            123123.1239123, -444.4444444), 123567.5683567)
         self.assertRaises(OverflowError, mathlibrary.sub,
                           sys.float_info.min, -1)
 
@@ -48,8 +48,8 @@ class Test(unittest.TestCase):
                           123123.123123, 0.000000000)
         self.assertEqual(mathlibrary.div(6546.123123, -1), -6546.123123)
         self.assertAlmostEqual(mathlibrary.div(89764590.6700, 2.1234),
-                               4.2273990143224849298295186e7)
-        self.assertEqual(mathlibrary.div(-65, 4), 16.25)
+                               4.227399014316662e7)
+        self.assertEqual(mathlibrary.div(-65, 4), -16.25)
         self.assertEqual(mathlibrary.div(0, 42), 0)
 
     def test_fac(self):
@@ -85,7 +85,7 @@ class Test(unittest.TestCase):
 
     def test_rem(self):
         self.assertEqual(mathlibrary.rem(5, 2), 1)
-        self.assertRaises(mathlibrary.rem(987.333, 2.33), 1.743)
+        self.assertAlmostEqual(mathlibrary.rem(987.333, 2.33), 1.743)
         self.assertRaises(ZeroDivisionError, 42, 0)
         self.assertRaises(ZeroDivisionError, 42,
                           000000000000.000000000000000)
