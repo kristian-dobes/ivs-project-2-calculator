@@ -58,16 +58,16 @@ class Test(unittest.TestCase):
         self.assertRaises(OverflowError, mathlibrary.fac, 1231231245123412312)
         self.assertRaises(ValueError, mathlibrary.fac, -10)
 
-    def test_pow(self):
-        self.assertRaises(ValueError, mathlibrary.pow, 45, 0.2)
-        self.assertAlmostEqual(mathlibrary.pow(2.5123, 6),
+    def test_mypow(self):
+        self.assertRaises(ValueError, mathlibrary.mypow, 45, 0.2)
+        self.assertAlmostEqual(mathlibrary.mypow(2.5123, 6),
                                251.4368864)
-        self.assertEqual(mathlibrary.pow(123, 12), 11991163848716906297072721)
-        self.assertEqual(mathlibrary.pow(-2, 4), 16)
-        self.assertEqual(mathlibrary.pow(2, 3), 16)
-        self.assertEqual(ValueError, mathlibrary.pow, 42, 0)
-        self.assertEqual(mathlibrary.pow(-2, 3), -8)
-        self.assertAlmostEqual(mathlibrary.pow(2.25, 0.14),
+        self.assertEqual(mathlibrary.mypow(123, 12), 11991163848716906297072721)
+        self.assertEqual(mathlibrary.mypow(-2, 4), 16)
+        self.assertEqual(mathlibrary.mypow(2, 3), 16)
+        self.assertEqual(ValueError, mathlibrary.mypow, 42, 0)
+        self.assertEqual(mathlibrary.mypow(-2, 3), -8)
+        self.assertAlmostEqual(mathlibrary.mypow(2.25, 0.14),
                                0.8926772)
 
     def test_root(self):
