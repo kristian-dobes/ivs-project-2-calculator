@@ -3,7 +3,7 @@
 # Soubor: mathlibrary.py
 # Datum: 21.4.2022
 # Poslední změna: 22.4.2022
-# Autoř:Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)
+# Autoři: Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)
 #
 # Popis: Knihovna, která vykonává základní matematické operace jako sčítání, odčítání, násobení, dělení,
 # celočíselný zbytek po dělení, umocnění, obecnou odmocninu a faktoriál 
