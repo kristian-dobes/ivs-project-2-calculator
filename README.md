@@ -15,4 +15,4 @@ IVS01
 Licence
 -------
 
-Tento program je poskytovan...
+Tento program je poskytovan pod licenci MIT.
