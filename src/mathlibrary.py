@@ -21,7 +21,7 @@
 #
 # Knihovna, která vykonává základní matematické operace jako sčítání, odčítání, násobení, dělení,
 # zbytek po dělení, umocnění, obecná odmocnina a faktoriál.
-#  Všechny funkce jsou testovány s přesností na sedm desetinných míst.
+# Všechny funkce jsou testovány s přesností na sedm desetinných míst.
 
 
 
@@ -68,7 +68,7 @@ def div(divident, divisor):  # Division
 # @param basis základ
 # @param exponent exponent
 #
-# @return základ na exponent    
+# @return Základ na exponent    
 def mypow(basis, exponent):            #Exponentiation
     result = pow(basis, exponent)
     return result
@@ -78,7 +78,7 @@ def mypow(basis, exponent):            #Exponentiation
 # @param num odmocněnec
 # @param exponent odmocnitel
 #
-# @return n-tá odmocnina  
+# @return N-tá odmocnina  
 def root(num, root):                #Nth-Root
     if root==0: 
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")    
@@ -90,7 +90,7 @@ def root(num, root):                #Nth-Root
 # Funkce pro výpočet faktorialu
 # @param num základ
 # Argument funkce musí být kladné číslo menší než 170
-# @return faktoriál základu  
+# @return Faktoriál základu  
 def fac(num):  # Factorial
     factorial = 1
     if num < 0 or num % 1 != 0:
