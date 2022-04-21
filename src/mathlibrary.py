@@ -20,12 +20,12 @@ def div(divident, divisor):         #Division
         return divident/divisor
     
     
-def Pow(basis, exponent):            #Exponentiation    #CAPITAL Pow
+def mypow(basis, exponent):            #Exponentiation
     result = pow(basis, exponent)
     return result
 
 
-def nroot(num, root):                #Nth-Root
+def root(num, root):                #Nth-Root
     if root==0: 
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")    
     else:
