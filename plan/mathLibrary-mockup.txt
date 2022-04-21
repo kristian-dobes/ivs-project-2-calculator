@@ -31,7 +31,7 @@ fac
     return - int(faktoriál)
 
 umocňování
-pow
+mypow
     umocní zadaný základ na zadaný exponent (opakované násobení stejného čísla), vrací mocninu
     argument - double(základ), int(exponent)
         kalkulačka pracuje pouze s přirozenými exponenty (0,1,2,3,...)
