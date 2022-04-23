@@ -183,7 +183,7 @@ def print_mod(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro volání funkcí z knihovny mathlibrary.\py
+# @brief Funkce pro volání funkcí z knihovny mathlibrary.\ py
 #
 def execute():
     gui.display.configure(state = 'normal')
