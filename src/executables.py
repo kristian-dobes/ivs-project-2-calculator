@@ -101,7 +101,7 @@ def print_0(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace + do GUI okna 
+# @brief Funkce pro vypsání znaku + do GUI okna 
 # 
 def print_plus(ignore=0):
     gui.display.configure(state='normal')
@@ -109,7 +109,7 @@ def print_plus(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace - do GUI okna 
+# @brief Funkce pro vypsání znaku - do GUI okna 
 #     
 def print_minus(ignore=0):
     gui.display.configure(state='normal')
@@ -117,7 +117,7 @@ def print_minus(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace * do GUI okna 
+# @brief Funkce pro vypsání znaku * do GUI okna 
 # 
 def print_mul(ignore=0):
     gui.display.configure(state='normal')
@@ -125,7 +125,7 @@ def print_mul(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace / do GUI okna 
+# @brief Funkce pro vypsání znaku / do GUI okna 
 # 
 def print_div(ignore=0):
     gui.display.configure(state='normal')
@@ -133,7 +133,7 @@ def print_div(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace ^ do GUI okna 
+# @brief Funkce pro vypsání znaku ^ do GUI okna 
 # 
 def print_n_pow(ignore=0):
     gui.display.configure(state='normal')
@@ -141,12 +141,14 @@ def print_n_pow(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace √ do GUI okna 
+# @brief Funkce pro vypsání znaku √ do GUI okna 
 # 
 def print_n_root(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"√")
     gui.display.configure(state='disabled')
+
+
 #def print_lp(ignore=0):
  #   display.configure(state='normal')
 #    display.insert(END,"(")
@@ -157,7 +159,7 @@ def print_n_root(ignore=0):
 #    display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání znaku . do GUI okna 
+# @brief Funkce pro vypsání znaku .\ do GUI okna 
 # 
 def print_dot():
     gui.display.configure(state='normal')
@@ -165,7 +167,7 @@ def print_dot():
     gui.display.configure(state='disabled')
   
 ##
-# @brief Funkce pro vypsání operace ! do GUI okna 
+# @brief Funkce pro vypsání znaku ! do GUI okna 
 # 
 def print_fac(ignore=0):
     gui.display.configure(state='normal')
@@ -173,14 +175,16 @@ def print_fac(ignore=0):
     gui.display.configure(state='disabled')
 
 ##
-# @brief Funkce pro vypsání operace % do GUI okna 
+# @brief Funkce pro vypsání znaku % do GUI okna 
 #
 def print_mod(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"%")
     gui.display.configure(state='disabled')
 
-
+##
+# @brief Funkce pro volání funkcí z knihovny mathlibrary.\py
+#
 def execute():
     gui.display.configure(state = 'normal')
     equation = gui.display.get("1.0",END)
@@ -190,8 +194,8 @@ def execute():
     arr_inputs = []
     ex = 0
     minus_num=0
-    for i in equation:
-        if i in ('1','2','3','4','5','6','7','8','9','0'):
+    for i in equation: #prochází input znak po znaku
+        if i in ('1','2','3','4','5','6','7','8','9','0'): #pokud obsahuje číslici 
             if (appended_sign == 2):
                 gui.display.delete("1.0",END)
                 gui.display.insert("1.0","Synatax error")
@@ -223,15 +227,15 @@ def execute():
         return
     #factorial
     to_delete = []
-    length = len(arr_inputs)
-    for i in range(0,len(arr_inputs)):
-        if arr_inputs[i] == '!':
-            to_delete.append(i)
-            number = int(arr_inputs[i-1])
-            arr_inputs[i-1] = math_library.fac(number)
+    length = len(arr_inputs)                              #!nevyužitá proměná? 
+    for i in range(0,len(arr_inputs)):                    #prochází pole znak po znaku
+        if arr_inputs[i] == '!':                          #pokud prvek pole obsahuje "operaci"
+            to_delete.append(i)                           #přidá danou operaci do array pro smazání 
+            number = int(arr_inputs[i-1])                 #nastaví number na hodnotu čísel před operací
+            arr_inputs[i-1] = math_library.fac(number)    #zapíše na pozici čísla v poli výsledek operace
             #for o in range(i+1,len(arr_inputs)):
                # arr_inputs[o-1]=arr_inputs[o]
-    for i in reversed(to_delete):
+    for i in reversed(to_delete):                         #odstranění přebytečných znaků z pole
         arr_inputs.pop(i)
     to_delete = []
     
@@ -321,11 +325,18 @@ def execute():
     gui.display.delete("1.0",END)
     gui.display.insert("1.0",str(arr_inputs[0]))
     gui.display.configure(state='disabled')
-        
+
+##
+# @brief Funkce pro smazání posledního znaku GUI okna
+#
 def del_last_pos(ignore=0):
     gui.display.configure(state='normal')
     gui.display.delete("end-2c")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro smazání obsahu GUI okna
+# 
 def del_all():
     gui.display.configure(state='normal')
     gui.display.delete("1.0",END)
