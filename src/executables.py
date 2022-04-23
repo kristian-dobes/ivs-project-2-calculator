@@ -1,3 +1,17 @@
+##
+# @file executables.py
+#
+# @brief Modul pro výpis do GUI a pro volání funkcí z matematické knihovny. 
+#
+# @author Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)
+# @version 1.0
+#
+# @section DESCRIPTION
+#
+# Modul slouží k výpisu do GUI. Po zadání inputu rozlišuje zadané operace a zajišťuje volání správných funkcí z matematické knihovny.
+# 
+
+
 import gui
 import tkinter
 from sympy import pretty_print
@@ -5,43 +19,82 @@ from sympy.abc import a, b, n
 from tkinter.tix import *
 import math_library
 
+##
+# @brief Funkce pro vypsání čísla 1 do GUI okna 
+# 
 def print_1(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"1")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 2 do GUI okna 
+# 
 def print_2(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"2")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 3 do GUI okna 
+# 
 def print_3(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"3")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 4 do GUI okna 
+# 
 def print_4(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"4")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 5 do GUI okna 
+# 
 def print_5(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"5")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 6 do GUI okna 
+# 
 def print_6(ignore=0):
 
     gui.display.configure(state='normal')
     gui.display.insert(END,"6")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 7 do GUI okna 
+# 
 def print_7(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"7")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 8 do GUI okna 
+# 
 def print_8(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"8")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 9 do GUI okna 
+# 
 def print_9(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"9")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání čísla 0 do GUI okna 
+# 
 def print_0(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"0")
