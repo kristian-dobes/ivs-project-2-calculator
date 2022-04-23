@@ -112,7 +112,7 @@ def fac(num):  # Factorial
 # @param divident dělenec
 # @param divisor dělitel
 #
-# @return Zbytek dělenec%dělitel
+# @return Zbytek dělenec%\ dělitel
 def rem(divident, divisor):  # Division Remainder
     if divisor == 0 or divisor == {}:
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")
