@@ -100,26 +100,49 @@ def print_0(ignore=0):
     gui.display.insert(END,"0")
     gui.display.configure(state='disabled')
 
+##
+# @brief Funkce pro vypsání operace + do GUI okna 
+# 
 def print_plus(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"+")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání operace - do GUI okna 
+#     
 def print_minus(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"-")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání operace * do GUI okna 
+# 
 def print_mul(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"*")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání operace / do GUI okna 
+# 
 def print_div(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"/")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání operace ^ do GUI okna 
+# 
 def print_n_pow(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"^")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání operace √ do GUI okna 
+# 
 def print_n_root(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"√")
@@ -132,18 +155,31 @@ def print_n_root(ignore=0):
 #    display.configure(state='normal')
 #    display.insert(END,")")
 #    display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání znaku . do GUI okna 
+# 
 def print_dot():
     gui.display.configure(state='normal')
     gui.display.insert(END,".")
     gui.display.configure(state='disabled')
+  
+##
+# @brief Funkce pro vypsání operace ! do GUI okna 
+# 
 def print_fac(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"!")
     gui.display.configure(state='disabled')
+
+##
+# @brief Funkce pro vypsání operace % do GUI okna 
+#
 def print_mod(ignore=0):
     gui.display.configure(state='normal')
     gui.display.insert(END,"%")
     gui.display.configure(state='disabled')
+
 
 def execute():
     gui.display.configure(state = 'normal')
