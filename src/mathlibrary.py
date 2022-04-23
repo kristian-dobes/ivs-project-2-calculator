@@ -94,11 +94,11 @@ def root(num, root):                #Nth-Root
 def fac(num):  # Factorial
     factorial = 1
     if num < 0 or num % 1 != 0:
-        raise ValueError("Value needs to be a non-negative integer")
+        raise ValueError("Value needs to be a non-negative integer") # Argument funkce musí být kladné číslo
     elif num == 0:
         result = 1
     elif num > 170:
-        raise OverflowError("Factorial above 170")
+        raise OverflowError("Factorial above 170") # Argument funkce musí být číslo menší než 170
     else:
         for i in range(1, num + 1):
             factorial = factorial*i
