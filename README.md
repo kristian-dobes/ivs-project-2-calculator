@@ -1,7 +1,7 @@
 Prostredi
 ---------
 
-Windows 64bit
+Linux 64bit
 
 Autori
 ------
