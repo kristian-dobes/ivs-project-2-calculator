@@ -140,5 +140,4 @@ win.bind("%", lambda event:executables.print_num('%'))
 win.bind("^", lambda event:executables.print_num('^'))
 win.bind(".", lambda event:executables.print_num('.'))
 
-
-
+win.mainloop()
