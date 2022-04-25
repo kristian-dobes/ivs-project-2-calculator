@@ -117,7 +117,7 @@ def execute():
         if arr_inputs[i] == '!':
             to_delete.append(i)
             number = int(arr_inputs[i-1])
-            arr_inputs[i-1] = math_library.fac(number)
+            arr_inputs[i-1] = mathlibrary.fac(number)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -129,7 +129,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.root(number2,number1)
+            arr_inputs[i-1] = mathlibrary.root(number2,number1)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -141,7 +141,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.mypow(number1,number2)
+            arr_inputs[i-1] = mathlibrary.mypow(number1,number2)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -153,7 +153,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.div(number1,number2)
+            arr_inputs[i-1] = mathlibrary.div(number1,number2)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -165,7 +165,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.rem(number1,number2)
+            arr_inputs[i-1] = mathlibrary.rem(number1,number2)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -176,7 +176,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.mult(number1,number2)
+            arr_inputs[i-1] = mathlibrary.mult(number1,number2)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -188,7 +188,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.sub(number1,number2)
+            arr_inputs[i-1] = mathlibrary.sub(number1,number2)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
@@ -200,7 +200,7 @@ def execute():
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
-            arr_inputs[i-1] = math_library.sum(number1,number2)
+            arr_inputs[i-1] = mathlibrary.sum(number1,number2)
     for i in reversed(to_delete):
         arr_inputs.pop(i)
     to_delete = []
