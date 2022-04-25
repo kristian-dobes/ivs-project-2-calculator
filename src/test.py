@@ -27,17 +27,17 @@ class Test(unittest.TestCase):
         self.assertRaises(OverflowError, mathlibrary.sub,
                           sys.float_info.min, -1)
 
-    def test_mul(self):
-        self.assertAlmostEqual(mathlibrary.mul(172398071273971293871809.1273908,
+    def test_mult(self):
+        self.assertAlmostEqual(mathlibrary.mult(172398071273971293871809.1273908,
                                1.123), 1.9360303e23
                                )
-        self.assertEqual(mathlibrary.mul(41, 0), 0)
-        self.assertEqual(mathlibrary.mul(0, 42), 0)
-        self.assertAlmostEqual(mathlibrary.mul(
+        self.assertEqual(mathlibrary.mult(41, 0), 0)
+        self.assertEqual(mathlibrary.mult(0, 42), 0)
+        self.assertAlmostEqual(mathlibrary.mult(
             1.1876, -789.6780000), -937.8215928)
         self.assertAlmostEqual(
-            mathlibrary.mul(-1.123213, 123123.1323123), -138293.5028139)
-        self.assertRaises(OverflowError, mathlibrary.mul, sys.float_info.min, 2)
+            mathlibrary.mult(-1.123213, 123123.1323123), -138293.5028139)
+        self.assertRaises(OverflowError, mathlibrary.mult, sys.float_info.min, 2)
 
     def test_div(self):
         self.assertEqual(mathlibrary.div(5, 2), 2.5)
