@@ -26,7 +26,7 @@
 import gui
 import tkinter
 from tkinter.tix import *
-import math_library
+import mathlibrary
 
 ex = 0
 ##
