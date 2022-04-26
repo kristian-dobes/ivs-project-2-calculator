@@ -1,6 +1,6 @@
 #############################################################################################################
 # Název projektu: Matematická kalkulačka
-# Soubor: mathlibrary.py
+# Soubor: executables.py
 # Datum: 22.4.2022
 # Poslední změna: 24.4.2022
 # Autoři: Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)

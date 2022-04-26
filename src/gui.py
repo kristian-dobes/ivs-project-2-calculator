@@ -1,11 +1,6 @@
-import tkinter
-from tkinter.tix import *
-import executables
-
-win = Tk()
 #############################################################################################################
 # Název projektu: Matematická kalkulačka
-# Soubor: mathlibrary.py
+# Soubor: gui.py
 # Datum: 10.4.2022
 # Poslední změna: 24.4.2022
 # Autoři: Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)
@@ -15,7 +10,7 @@ win = Tk()
 #############################################################################################################
 
 ##
-# @file guy.py
+# @file gui.py
 #
 # @brief Matematická knihovna
 #
@@ -26,6 +21,12 @@ win = Tk()
 #
 # modul pro grafické uživatelské rozhraní včetně všech čísel a symbolů nezbytných pro matematickou knihovnu
 # a jejich zobrazení
+
+import tkinter
+from tkinter.tix import *
+import executables
+
+win = Tk()
 
 # creating base for calculator
 win.geometry("390x460")
