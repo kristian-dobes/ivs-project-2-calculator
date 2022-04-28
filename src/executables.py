@@ -1,6 +1,6 @@
 #############################################################################################################
 # Název projektu: Matematická kalkulačka
-# Soubor: mathlibrary.py
+# Soubor: executables.py
 # Datum: 22.4.2022
 # Poslední změna: 24.4.2022
 # Autoři: Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)
@@ -12,7 +12,7 @@
 ##
 # @file executables.py
 #
-# @brief Matematická knihovna
+# @brief Integračny modul
 #
 # @author Miroslav Bálek (xbalek02), Kristián Dobeš (xdobes22), Maroš Synák (xsynak03), Jan Král (xkralj12)
 # @version 1.0
@@ -28,6 +28,7 @@ import tkinter
 #from tkinter.tix import *
 import mathlibrary
 
+## global variable if 1 means to delete screen on new input
 ex = 0
 ##
 # Funkce pro vypsání odmocniny do displeje, je separatne kvůli použití speciálního znaku
@@ -62,23 +63,25 @@ def execute():
         ex = 0
     gui.display.configure(state = 'normal')
     equation = gui.display.get("1.0",tkinter.END)
-    num = "" # into this digits are loaded until they form the whole number
-    appended_sign = 0 # if last read character wasnt numeric
-    arr_inputs = [] # array of inputs separated into numbers and characters
-    ex = 0 # if 1 next input will clear the display
-    minus_num = 0 # if number is negative
-    appended_sign_minus = 0 # count of minus signs
+
+    ## do tohoto se načítají číslice, dokud nevytvoří celé číslo
+    num = ""
+    appended_sign = 0 ## pokud poslední přečtený znak není číselný
+    arr_inputs = [] ## array of inputs separated into numbers and characters
+    ex = 0 ## if 1 next input will clear the display
+    minus_num = 0 ## if number is negative
+    appended_sign_minus = 0 ## count of minus signs
     for i in equation:
-        if i in ('1','2','3','4','5','6','7','8','9','0'):
-            if (appended_sign == 2):
+        if i in ('1','2','3','4','5','6','7','8','9','0'): ## if char in input is digit
+            if (appended_sign == 2): ## if 2 operations have been loaded in a row throw syntax error
                 gui.display.delete("1.0",tkinter.END)
                 gui.display.insert("1.0","Synatax error")
                 ex = 1
-            appended_sign_minus=0
-            appended_sign = 0
-            if (minus_num == 1):
+            appended_sign_minus=0 ## resets to 0
+            appended_sign = 0 ## resets to 0
+            if (minus_num == 1): ## if number is negative resets it
                 num += '-'
-                minus_num=0
+                minus_num = 0
             num += i
         else:
             if(i == '-'):
@@ -122,13 +125,13 @@ def execute():
     if ex == 1:
         return
     #factorial
-    to_delete = []
+    to_delete = [] # contains indexes of elements in arr_inputs to be deleted
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '!':
-            to_delete.append(i)
-            number = int(arr_inputs[i-1])
-            arr_inputs[i-1] = mathlibrary.fac(number)
-    for i in reversed(to_delete):
+            to_delete.append(i) # adds number to be deleted
+            number = int(arr_inputs[i-1]) # factorial of this number is to be calculated
+            arr_inputs[i-1] = mathlibrary.fac(number) # saves 
+    for i in reversed(to_delete): # deletes numbers from arr that are redundent
         arr_inputs.pop(i)
     to_delete = []
     
@@ -147,7 +150,7 @@ def execute():
         arr_inputs.pop(i)
     to_delete = []
 
-    #pow
+    #mypow
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '^':
             to_delete.append(i)
@@ -155,7 +158,7 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.mypow(number1,number2)
-            out = mathlibrary.pow(number1,number2)
+            out = mathlibrary.mypow(number1,number2)
             arr_inputs[i+1] = mathlibrary.mypow(number1,number2)
     for i in reversed(to_delete):
         arr_inputs[i-1] = out
@@ -286,9 +289,9 @@ def help_in():
     text = gui.canvas.create_text(5,150,text= "%", anchor=tkinter.W)
     text = gui.canvas.create_text(20,150,text= ":modulos 2 numbers format(num1%num2)", anchor=tkinter.W)
     text = gui.canvas.create_text(5,175,text= "^", anchor=tkinter.W)
-    text = gui.canvas.create_text(20,175,text= ":num x to the power of num2 format(num1^num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,175,text= ":num x to the mypower of num2 format(num1^num2)", anchor=tkinter.W)
     text = gui.canvas.create_text(5,200,text= "!", anchor=tkinter.W)
-    text = gui.canvas.create_text(20,200,text= ":factorial of n format(n!)", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,200,text= ":factorial of n format(n!) , max value of n 170", anchor=tkinter.W)
     text = gui.canvas.create_text(5,225,text= "√", anchor=tkinter.W)
     text = gui.canvas.create_text(20,225,text= ":nth root of x format(n√x)", anchor=tkinter.W)
     text = gui.canvas.create_text(5,250,text= ".", anchor=tkinter.W)
