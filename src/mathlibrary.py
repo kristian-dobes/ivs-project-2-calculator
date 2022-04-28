@@ -93,7 +93,7 @@ def root(num, root):                #Nth-Root
 # Argument funkce musí být kladné číslo menší než 170
 # @return Faktoriál základu  
 def fac(input):  # Factorial
-    num=int(input)
+    num=int(input)  #převede zadaný input na int
     factorial = 1
     if num < 0 or num % 1 != 0:
         raise ValueError("Value needs to be a non-negative integer") # Argument funkce musí být kladné číslo
