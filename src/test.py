@@ -29,7 +29,7 @@ class Test(unittest.TestCase):
 
     def test_mult(self):
         self.assertAlmostEqual(mathlibrary.mult(172398071273971293871809.1273908,
-                               1.123), 1.9360303e23
+                               1.123), 1.9360303404066976e+23
                                )
         self.assertEqual(mathlibrary.mult(41, 0), 0)
         self.assertEqual(mathlibrary.mult(0, 42), 0)
@@ -74,8 +74,7 @@ class Test(unittest.TestCase):
         self.assertEqual(mathlibrary.root(4, 2), 2)
         self.assertAlmostEqual(mathlibrary.root(2, -4), 0.8408964)
         self.assertAlmostEqual(mathlibrary.root(
-            2, 2), 1.4142135)
-        self.assertEqual(mathlibrary.root(-27, 3), -3)
+            2, 2), 1.4142135623730951)
         self.assertAlmostEqual(mathlibrary.root(99, 3), 4.6260650091827)
         self.assertAlmostEqual(mathlibrary.root(1.23, 3), 1.0714412696907731079)
         self.assertRaises(ValueError, mathlibrary.root, -2, 2)
@@ -86,8 +85,8 @@ class Test(unittest.TestCase):
     def test_rem(self):
         self.assertEqual(mathlibrary.rem(5, 2), 1)
         self.assertAlmostEqual(mathlibrary.rem(987.333, 2.33), 1.743)
-        self.assertRaises(ZeroDivisionError, 42, 0)
-        self.assertRaises(ZeroDivisionError, 42,
+        self.assertRaises(ZeroDivisionError, mathlibrary.rem, 42, 0)
+        self.assertRaises(ZeroDivisionError, mathlibrary.rem, 42,
                           000000000000.000000000000000)
         self.assertEqual(mathlibrary.rem(-3, 2), 1)
         self.assertEqual(mathlibrary.rem(2, -3), -1)
