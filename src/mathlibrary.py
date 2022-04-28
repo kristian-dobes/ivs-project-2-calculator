@@ -88,12 +88,10 @@ def root(num, root):                #Nth-Root
 
 ##
 # Funkce pro výpočet faktorialu
-# @param input základ ve floatu
-# @param num základ ve intu
+# @param num základ
 # Argument funkce musí být kladné číslo menší než 170
 # @return Faktoriál základu  
-def fac(input):  # Factorial
-    num=int(input)  #převede zadaný input na int
+def fac(num):  # Factorial
     factorial = 1
     if num < 0 or num % 1 != 0:
         raise ValueError("Value needs to be a non-negative integer") # Argument funkce musí být kladné číslo
@@ -102,7 +100,7 @@ def fac(input):  # Factorial
     elif num > 170:
         raise OverflowError("Factorial above 170") # Argument funkce musí být číslo menší než 170
     else:
-        for i in range(1, num + 1):
+        for i in range(1, int(num) + 1):
             factorial = factorial*i
             result = factorial
 
