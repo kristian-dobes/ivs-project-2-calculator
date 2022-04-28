@@ -80,7 +80,7 @@ def mypow(basis, exponent):            #Exponentiation
 #
 # @return N-tá odmocnina  
 def root(num, root):                #Nth-Root
-    if root<=0: 
+    if root==0: 
         raise ZeroDivisionError("Invalid: Divisor cannot be 0")    
     else:
         result = num**(1/root)
