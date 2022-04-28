@@ -27,19 +27,18 @@ pack:
 	rm -rf ./xsynak03_xbalek02_xdobes22_xkralj12
 
 
-
 clean:
 
 
 test:$(TEST)
-	python3 $(TEST)
+	python3 -m unittest $(TEST)
 
 doc : $(DOC_DOX)
 	doxygen $(DOC_DOX)
 
 
 run : $(EXECUTE)
-	python -m unittest $(EXECUTE)
+	python3 $(EXECUTE)
 	
 profile:$(PROFILING)
 	python3 $(PROFILING)
