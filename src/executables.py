@@ -62,12 +62,12 @@ def execute():
         ex = 0
     gui.display.configure(state = 'normal')
     equation = gui.display.get("1.0",tkinter.END)
-    num = ""
-    appended_sign = 0
-    arr_inputs = []
-    ex = 0
-    minus_num=0
-    appended_sign_minus=0
+    num = "" # into this digits are loaded until they form the whole number
+    appended_sign = 0 # if last read character wasnt numeric
+    arr_inputs = [] # array of inputs separated into numbers and characters
+    ex = 0 # if 1 next input will clear the display
+    minus_num = 0 # if number is negative
+    appended_sign_minus = 0 # count of minus signs
     for i in equation:
         if i in ('1','2','3','4','5','6','7','8','9','0'):
             if (appended_sign == 2):
@@ -83,17 +83,23 @@ def execute():
         else:
             if(i == '-'):
                 appended_sign_minus=appended_sign+1
-            print(appended_sign, appended_sign_minus)
+            elif i != '-':
+                appended_sign_minus=0
             if (appended_sign == 1 and not (appended_sign_minus == 1 or appended_sign_minus == 2 )):
                 gui.display.delete("1.0",tkinter.END)
                 gui.display.insert("1.0","Synatax error")
                 ex = 1
+            if i == '!':
+                for digit in num:
+                    if digit == '.':
+                        gui.display.delete("1.0",tkinter.END)
+                        gui.display.insert("1.0","Synatax error")
+                        ex = 1
             if num != "" and i != '.':
                 arr_inputs.append(num)
             elif num != "" and i == '.':
                 num += i
             if i == '-' and num=="" and appended_sign==0:
-                print("ggg")
                 minus_num=1
                 continue
             elif i != '\n' and appended_sign_minus != 2 and i !='.':
@@ -110,8 +116,6 @@ def execute():
     if ex == 1:
         return
     #factorial
-    for i in range(0,len(arr_inputs)):
-        print(arr_inputs[i])
     to_delete = []
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '!':
@@ -245,19 +249,24 @@ def help_in():
     gui.help_in.place_forget()
 
     gui.help_out.place(x=0,y=0)
-    #text = gui.canvas.create_text(5,50,text="+", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,50,text= "+ :adds 2 numbers format(num1+num2)", anchor=tkinter.W)
-    #text = gui.canvas.create_text(5,100,text= "-")
-    text = gui.canvas.create_text(5,75,text= "- :substracts 2 numbers format(num1-num2)", anchor=tkinter.W)
-    #text = gui.canvas.create_text(5,150,text= "/", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,100,text= "/ :divides 2 numbers format(num1/num2)", anchor=tkinter.W)
-   # text = gui.canvas.create_text(5,200,text= "*", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,125,text= "* :multiplies 2 numbers format(num1*num2)", anchor=tkinter.W)
-    #text = gui.canvas.create_text(5,250,text= "%", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,150,text= "x^n :num x to the power of num2 format(num1^num2)", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,175,text= "n! :factorial of n format(n!)", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,200,text= "n√x :nth root of x format(n√x)", anchor=tkinter.W)
-    text = gui.canvas.create_text(5,225,text= ". :floating point (whole_num.float_num)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,50,text="+", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,50,text= ":adds 2 numbers format(num1+num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,75,text= "-",anchor=tkinter.W)
+    text = gui.canvas.create_text(20,75,text= ":substracts 2 numbers format(num1-num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,100,text= "/", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,100,text= ":divides 2 numbers format(num1/num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,125,text= "*", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,125,text= ":multiplies 2 numbers format(num1*num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,150,text= "%", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,150,text= ":modulos 2 numbers format(num1%num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,175,text= "^", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,175,text= ":num x to the power of num2 format(num1^num2)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,200,text= "!", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,200,text= ":factorial of n format(n!)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,225,text= "√", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,225,text= ":nth root of x format(n√x)", anchor=tkinter.W)
+    text = gui.canvas.create_text(5,250,text= ".", anchor=tkinter.W)
+    text = gui.canvas.create_text(20,250,text= ":floating point (whole_num.float_num)", anchor=tkinter.W)
    
     gui.canvas.pack()
 
