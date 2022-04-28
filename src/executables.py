@@ -95,6 +95,12 @@ def execute():
                         gui.display.delete("1.0",tkinter.END)
                         gui.display.insert("1.0","Synatax error")
                         ex = 1
+            if i == '.':
+                for digit in num:
+                    if digit == '.':
+                        gui.display.delete("1.0",tkinter.END)
+                        gui.display.insert("1.0","Synatax error")
+                        ex = 1
             if num != "" and i != '.':
                 arr_inputs.append(num)
             elif num != "" and i == '.':
@@ -134,7 +140,10 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.root(number2,number1)
+            out = mathlibrary.root(number1,number2)
+            arr_inputs[i+1] = mathlibrary.root(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
 
@@ -146,7 +155,10 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.mypow(number1,number2)
+            out = mathlibrary.pow(number1,number2)
+            arr_inputs[i+1] = mathlibrary.mypow(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
 
@@ -158,7 +170,10 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.div(number1,number2)
+            out = mathlibrary.div(number1,number2)
+            arr_inputs[i+1] = mathlibrary.div(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
     
@@ -170,7 +185,10 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.rem(number1,number2)
+            out = mathlibrary.rem(number1,number2)
+            arr_inputs[i+1] = mathlibrary.rem(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
     #mult
@@ -181,7 +199,10 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.mult(number1,number2)
+            out = mathlibrary.mult(number1,number2)
+            arr_inputs[i+1] = mathlibrary.mult(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
 
@@ -193,10 +214,12 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.sub(number1,number2)
+            out = mathlibrary.sub(number1,number2)
+            arr_inputs[i+1] = mathlibrary.sub(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
-
     #sum
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '+':
@@ -205,7 +228,10 @@ def execute():
             number1 = float(arr_inputs[i-1])
             number2 = float(arr_inputs[i+1])
             arr_inputs[i-1] = mathlibrary.sum(number1,number2)
+            out = mathlibrary.sum(number1,number2)
+            arr_inputs[i+1] = mathlibrary.sum(number1,number2)
     for i in reversed(to_delete):
+        arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
 
