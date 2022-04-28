@@ -32,16 +32,6 @@ win.geometry("390x470")
 win.title("Calculator")
 canvas = tkinter.Canvas(win)
 
-# creating tooltips
-#tooltip_plus  = Balloon(win)
-#tooltip_minus = Balloon(win)
-#tooltip_mul   = Balloon(win)
-#tooltip_div   = Balloon(win)
-#tooltip_pow   = Balloon(win)
-#tooltip_root  = Balloon(win)
-#tooltip_del   = Balloon(win)
-#tooltip_ce    = Balloon(win)
-#tooltip_fac   = Balloon(win)
 
 # creating display
 display = tkinter.Text(width = 43,height=10)
@@ -81,17 +71,6 @@ mod = tkinter.Button(win,text="%",command=lambda: executables.print_num('%'),wid
 
 equals = tkinter.Button(win,text="=",command=executables.execute,width=14,height=5)
 
-#binding tooltips to buttons and setting messages
-#tooltip_plus.bind_widget(plus, balloonmsg="place inbetween 2 expressions for addition")
-#tooltip_minus.bind_widget(minus, balloonmsg="place inbetween 2 expressions for substraction")
-#tooltip_mul.bind_widget(times, balloonmsg="place inbetween 2 expressions for multiplication")
-#tooltip_div.bind_widget(division, balloonmsg="place inbetween 2 expressions for division")
-#tooltip_del.bind_widget(delete, balloonmsg="deletes last character")
-#tooltip_ce.bind_widget(ce, balloonmsg="clears all")
-#tooltip_fac.bind_widget(fac, balloonmsg="place after an expression for factorial")
-#tooltip_root.bind_widget(root, balloonmsg="place before an expression for root of n")
-#tooltip_pow.bind_widget(tpow, balloonmsg="place after an expression for pow to the power of n")
-
 
 #placing buttons
 
@@ -124,6 +103,7 @@ equals.place(x=230,y=362)
 division.place(x=300,y=260)
 
 help_in.place(x=0,y=0)
+
 # binding keyboard to buttons
 win.bind("1", lambda event:executables.print_num('1'))
 win.bind("2", lambda event:executables.print_num('2'))
