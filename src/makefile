@@ -2,48 +2,44 @@
 
 EXECUTE=executables.py
 MATHLIB=mathlibrary.py
-DOC_DOX=qat.doxygen
+DOC_DOX=Doxyfile
 TEST=test.py
 PROFILING=stddev.py
 
 ZIP_FILE=xsynak03_xbalek02_xdobes22_xkralj12
 
 
-all: init run	
+all: init run profile
 	
 init:
 	pip3 install -r requirements.txt
 	pip3 freeze
 
-# dont know if just pack or also make if dont exist
-pack: #doc  #clean
-	mkdir -p ../../xsynak03_xbalek02_xdobes22_xkralj12
+pack: 
+	mkdir -p ../../xsynak03_xbalek02_xdobes22_xkralj12/repo
 
 	cp -r ../../repo ../../xsynak03_xbalek02_xdobes22_xkralj12
 	cp -r ../../install ../../xsynak03_xbalek02_xdobes22_xkralj12
 	cp -r ../../doc ../../xsynak03_xbalek02_xdobes22_xkralj12
 
-	zip -r $(ZIP_FILE).zip ../../xsynak03_xbalek02_xdobes22_xkralj12
-	rm -rf ../../xsynak03_xbalek02_xdobes22_xkralj12
-	mv xsynak03_xbalek02_xdobes22_xkralj12.zip ../../
+	mv ../../xsynak03_xbalek02_xdobes22_xkralj12 ./
+	zip -r $(ZIP_FILE).zip ./xsynak03_xbalek02_xdobes22_xkralj12
+	rm -rf ./xsynak03_xbalek02_xdobes22_xkralj12
 
 
 
 clean:
-# dont know
+
 
 test:$(TEST)
 	python3 $(TEST)
 
 doc : $(DOC_DOX)
-	rm -rf ./doc
-	doxygen $(MATHLIB)
-	mkdir ./doc
-	mv html/ ./doc
-	mv latex/ ./doc
+	doxygen $(DOC_DOX)
+
 
 run : $(EXECUTE)
-	python3 $(EXECUTE)
+	python -m unittest $(EXECUTE)
 	
 profile:$(PROFILING)
 	python3 $(PROFILING)

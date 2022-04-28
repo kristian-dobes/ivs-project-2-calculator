@@ -20,7 +20,7 @@
 # @section DESCRIPTION
 #
 # Modul for integrating math library with gui, takes inputs from gui uses math library to calculate results
-# and delivers them back to gui
+# and delivers them back to gui.
 
 
 import gui
@@ -67,49 +67,49 @@ def execute():
     ## do tohoto se načítají číslice, dokud nevytvoří celé číslo
     num = ""
     appended_sign = 0 ## pokud poslední přečtený znak není číselný
-    arr_inputs = [] ## array of inputs separated into numbers and characters
-    ex = 0 ## if 1 next input will clear the display
-    minus_num = 0 ## if number is negative
-    appended_sign_minus = 0 ## count of minus signs
+    arr_inputs = [] ## pole vstupů rozdělených na čísla a znaky
+    ex = 0 ## pokud 1 další vstup vymaže displej
+    minus_num = 0 ## pokud 1 další vstup vymaže displej
+    appended_sign_minus = 0 ## počet znamének mínus
     for i in equation:
-        if i in ('1','2','3','4','5','6','7','8','9','0'): ## if char in input is digit
-            if (appended_sign == 2): ## if 2 operations have been loaded in a row throw syntax error
+        if i in ('1','2','3','4','5','6','7','8','9','0'): ## pokud je znak na vstupu číslice
+            if (appended_sign == 2): ## pokud byly načteny 2 operace za sebou, vyvolá chybu syntaxe
                 gui.display.delete("1.0",tkinter.END)
                 gui.display.insert("1.0","Synatax error")
                 ex = 1
-            appended_sign_minus=0 ## resets to 0
-            appended_sign = 0 ## resets to 0
-            if (minus_num == 1): ## if number is negative resets it
+            appended_sign_minus = 0 ## resetuje na 0
+            appended_sign = 0 ## resetuje na 0
+            if (minus_num == 1): ## pokud je číslo záporné, resetuje se
                 num += '-'
                 minus_num = 0
             num += i
-        else:
-            if(i == '-'):
+        else: ## ak je character operation
+            if(i == '-'): ## počítá počet mínusů
                 appended_sign_minus=appended_sign+1
-            elif i != '-':
-                appended_sign_minus=0
-            if (appended_sign == 1 and not (appended_sign_minus == 1 or appended_sign_minus == 2 )):
+            elif i != '-': ## resetuje množství opakujících se znamének mínus
+                appended_sign_minus = 0
+            if (appended_sign == 1 and not (appended_sign_minus == 1 or appended_sign_minus == 2 )): ## pokud jsou připojeny 2 znaky za sebou ( kromě 2 minusů )
                 gui.display.delete("1.0",tkinter.END)
                 gui.display.insert("1.0","Synatax error")
                 ex = 1
-            if i == '!':
+            if i == '!': ## kontroluje plovoucí čísla ve faktoriálu
                 for digit in num:
                     if digit == '.':
                         gui.display.delete("1.0",tkinter.END)
                         gui.display.insert("1.0","Synatax error")
                         ex = 1
-            if i == '.':
+            if i == '.': ## kontroluje počet bodů v plováku
                 for digit in num:
                     if digit == '.':
                         gui.display.delete("1.0",tkinter.END)
                         gui.display.insert("1.0","Synatax error")
                         ex = 1
-            if num != "" and i != '.':
+            if num != "" and i != '.': ## připojí nové číslo k poli
                 arr_inputs.append(num)
-            elif num != "" and i == '.':
+            elif num != "" and i == '.': ## pokud je číslo plovoucí, pokračujte v načítání čísla po plovoucí desetinné čárce
                 num += i
-            if i == '-' and num=="" and appended_sign==0:
-                minus_num=1
+            if i == '-' and num == "" and appended_sign==0: ## pokud je první číslo mínus číslo
+                minus_num = 1
                 continue
             elif i != '\n' and appended_sign_minus != 2 and i !='.':
                 arr_inputs.append(i)
@@ -118,24 +118,26 @@ def execute():
                 else:
                     appended_sign=2
             if i != '.':
-                num=""
+                num = ""
             if appended_sign_minus == 2:
-                num+='-'
+                num += '-'
 
     if ex == 1:
         return
+        
     #factorial
-    to_delete = [] # contains indexes of elements in arr_inputs to be deleted
+    to_delete = [] # obsahuje indexy prvků ve vstupech pole, které mají být odstraněny
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '!':
-            to_delete.append(i) # adds number to be deleted
-            number = int(arr_inputs[i-1]) # factorial of this number is to be calculated
-            arr_inputs[i-1] = mathlibrary.fac(number) # saves 
-    for i in reversed(to_delete): # deletes numbers from arr that are redundent
+            to_delete.append(i) # přidá číslo, které má být smazáno
+            number = int(arr_inputs[i-1]) # je třeba vypočítat faktoriál tohoto čísla
+            arr_inputs[i-1] = mathlibrary.fac(number) # šetří
+    for i in reversed(to_delete): # smaže čísla z pole, která jsou nadbytečná
         arr_inputs.pop(i)
     to_delete = []
     
     #root
+    ## všechny ostatní bloky kódu jsou stejné, s výjimkou různých operací
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '√':
             to_delete.append(i)
@@ -182,7 +184,7 @@ def execute():
     
     #rem
     for i in range(0,len(arr_inputs)):
-        if arr_inputs[i] == '/':
+        if arr_inputs[i] == '%':
             to_delete.append(i)
             to_delete.append(i+1)
             number1 = float(arr_inputs[i-1])
@@ -223,6 +225,7 @@ def execute():
         arr_inputs[i-1] = out
         arr_inputs.pop(i)
     to_delete = []
+    
     #sum
     for i in range(0,len(arr_inputs)):
         if arr_inputs[i] == '+':
@@ -238,19 +241,24 @@ def execute():
         arr_inputs.pop(i)
     to_delete = []
 
+    ## inputs resullt back into display
     gui.display.delete("1.0",tkinter.END)
     gui.display.insert("1.0",str(arr_inputs[0]))
     gui.display.configure(state='disabled')
-        
-def del_last_pos(ignore=0):
+
+## deletes last character in display 
+def del_last_pos(ignore = 0):
     gui.display.configure(state='normal')
     gui.display.delete("end-2c")
     gui.display.configure(state='disabled')
+
+## deletes all characters in display
 def del_all():
     gui.display.configure(state='normal')
     gui.display.delete("1.0",tkinter.END)
     gui.display.configure(state='disabled')
 
+## creates help and gets rid of all other components
 def help_in():
     gui.num1.place_forget()
     gui.num2.place_forget()
@@ -299,6 +307,7 @@ def help_in():
    
     gui.canvas.pack()
 
+## leave help and recreate all neccessary components for calculator
 def help_out():
     gui.display.place(x=19,y=30)
     gui.num1.place(x=20,y=360)
